@@ -1,13 +1,13 @@
 import React from 'react'
 import Product from './components/product/Product'
 
-const App=()=>{
-    return(
+class App extends React.Component{
+    render(){
+        return(
         <div id='main' className='container'>
             Hello World !!!!!
                 <Product/> 
-        </div>
-    )
+        </div>)
+    }
 }
-
 export default App
