@@ -6,7 +6,9 @@ class App extends React.Component{
         return(
         <div id='main' className='container'>
             Hello World !!!!!
-                <Product/> 
+                <Product title='book1' price='90'/> 
+                <Product title='book2' price='70'/> 
+                <Product title='book1' price='80'/> 
         </div>)
     }
 }

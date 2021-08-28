@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Product=()=>{
+const Product=(props)=>{
     return(
         <div>
-            <p>product Name</p>
-            <p>product price</p>
+            <p>book title : {props.title}</p>
+            <p>book price : {props.price}</p>
         </div>
     )
 }
