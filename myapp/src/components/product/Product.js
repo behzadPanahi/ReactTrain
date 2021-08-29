@@ -5,7 +5,7 @@ const Product=(props)=>{
     return(
         <div className='product'>
             <p>book title : {props.title}</p>
-            <p>book price : {props.price}</p>
+            <p onClick={props.click}>book price : {props.price}</p>
             <p> {props.children} </p>
         </div>
     )
