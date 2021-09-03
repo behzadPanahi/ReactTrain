@@ -16,6 +16,16 @@ class App extends React.Component {
         }
         this.setState(newState)
     }
+
+    changeInputHandler = (event) => {
+        let newState = {
+            products: [
+                { title: 'book1', price: '10' }, 
+                { title: event.target.value, price: '10' },
+                 { title: 'book3', price: '10' }]
+        }
+        this.setState(newState)
+    }
     render() {
         return (
             <div className='center'>
@@ -23,7 +33,8 @@ class App extends React.Component {
                 <Product title={this.state.products[0].title}
                     price={this.state.products[0].price} />
                 <Product title={this.state.products[1].title}
-                    price={this.state.products[1].price} />
+                    price={this.state.products[1].price}
+                    change={this.changeInputHandler} />
                 <Product title={this.state.products[2].title}
                     price={this.state.products[2].price}
                     click={this.changePriceHandler.bind(this,'new title')} />
