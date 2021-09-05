@@ -10,16 +10,6 @@ class App extends React.Component {
         showProducts: false
     }
 
-    changeInputHandler = (event) => {
-        let newState = {
-            products: [
-                { title: 'book1', price: '10' },
-                { title: event.target.value, price: '10' },
-                { title: 'book3', price: '10' }]
-        }
-        this.setState(newState)
-    }
-
     toggleHandler = () => {
         const show = this.state.showProducts
         this.setState({ showProducts: !show })
@@ -30,13 +20,11 @@ class App extends React.Component {
         let products=null;
         if(this.state.showProducts){
             products= <div>
-            <Product title={this.state.products[0].title}
-                price={this.state.products[0].price} />
-            <Product title={this.state.products[1].title}
-                price={this.state.products[1].price} 
-                change={this.changeInputHandler}/>
-            <Product title={this.state.products[2].title}
-                price={this.state.products[2].price} />
+                {
+                    this.state.products.map((item)=>{
+                        return <Product title={item.title} price={item.price}/>
+                    })
+                }
         </div>
         }
         return (
