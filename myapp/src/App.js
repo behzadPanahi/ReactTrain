@@ -27,6 +27,18 @@ class App extends React.Component {
 
 
     render() {
+        let products=null;
+        if(this.state.showProducts){
+            products= <div>
+            <Product title={this.state.products[0].title}
+                price={this.state.products[0].price} />
+            <Product title={this.state.products[1].title}
+                price={this.state.products[1].price} 
+                change={this.changeInputHandler}/>
+            <Product title={this.state.products[2].title}
+                price={this.state.products[2].price} />
+        </div>
+        }
         return (
             <div className='center'>
                 <h1>
@@ -37,19 +49,7 @@ class App extends React.Component {
                     className='btn' >
                     show/hidden
                 </button>
-                {
-                    this.state.showProducts ?
-                     <div>
-                     <Product title={this.state.products[0].title}
-                         price={this.state.products[0].price} />
-                     <Product title={this.state.products[1].title}
-                         price={this.state.products[1].price} 
-                         change={this.changeInputHandler}/>
-                     <Product title={this.state.products[2].title}
-                         price={this.state.products[2].price} />
-                 </div>
-                 :null
-                }  
+                {products}
             </div>
             )
     }
