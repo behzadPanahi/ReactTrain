@@ -4,8 +4,8 @@ import './Product.css'
 const Product=(props)=>{
     return(
         <div className='product'>
-            <p>book title : {props.title}</p>
-            <p onClick={props.click}>book price : {props.price}</p>
+            <p onClick={props.click}>book title : {props.title}</p>
+            <p>book price : {props.price}</p>
             <p> {props.children} </p>
             <input type='text' onChange={props.change}/>
         </div>

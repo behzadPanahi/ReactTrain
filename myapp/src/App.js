@@ -15,14 +15,22 @@ class App extends React.Component {
         this.setState({ showProducts: !show })
     }
 
-
+    deleteProductHandler=(index)=>{
+        const tempProducts=this.state.products
+        tempProducts.splice(index,1);
+        this.setState({priducts:tempProducts})
+    }
     render() {
         let products=null;
         if(this.state.showProducts){
             products= <div>
                 {
-                    this.state.products.map((item)=>{
-                        return <Product title={item.title} price={item.price}/>
+                    this.state.products.map((item ,index)=>{
+                        return <Product 
+                        title={item.title} 
+                        price={item.price}
+                        click={()=>this.deleteProductHandler(index)}
+                        />
                     })
                 }
         </div>
