@@ -1,6 +1,7 @@
 import React from 'react'
-import Product from './components/product/Product'
+import ProductList from './components/productList/ProductList'
 import './App.css'
+import Main from './components/main/Main'
 
 class App extends React.Component {
     state = {
@@ -30,30 +31,17 @@ class App extends React.Component {
     render() {
         let products = null;
         if (this.state.showProducts) {
-            products = <div>
-                {
-                    this.state.products.map((item, index) => {
-                        return <Product
-                            key={item.id}
-                            title={item.title}
-                            price={item.price}
-                            click={() => this.deleteProductHandler(index)}
-                            change={(event)=>this.changeTitelHandler(event,index)}
-                        />
-                    })
-                }
-            </div>
+            products=(
+                <ProductList 
+           stateProducts={this.state.products}
+           click={this.deleteProductHandler}
+           change={this.changeTitelHandler}
+           />
+            )  
         }
         return (
             <div className='center'>
-                <h1>
-                    Book store
-                </h1>
-                <button
-                    onClick={this.toggleHandler}
-                    className='btn' >
-                    show/hidden
-                </button>
+               <Main click={this.toggleHandler}/>
                 {products}
             </div>
         )
