@@ -2,8 +2,15 @@ import React from "react";
 import Product from "../product/Product";
 
 class ProductList extends React.Component{
-
+    constructor(props){
+        super(props)
+        console.log('ProductList.js constractor');
+    }
+    componentDidMount(){
+        console.log('ProductList.js componentDidMount');
+    }
 render(){  
+    console.log('ProductList.js rendered');
        return this.props.stateProducts.map((item, index) => {
             return <Product
                 key={item.id}

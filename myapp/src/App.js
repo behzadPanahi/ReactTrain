@@ -4,12 +4,20 @@ import './App.css'
 import Main from './components/main/Main'
 
 class App extends React.Component {
+    constructor(props){
+        super(props)
+        console.log('App.js constractor');
+    }
     state = {
         products: [
             { id: 1, title: 'book1', price: '90' },
             { id: 2, title: 'book2', price: '80' },
             { id: 3, title: 'book3', price: '70' }],
         showProducts: false
+    }
+
+    componentDidMount(){
+        console.log('App.js componentDidMount');
     }
 
     toggleHandler = () => {
@@ -29,6 +37,7 @@ class App extends React.Component {
         this.setState({ priducts: tempProducts })
     }
     render() {
+        console.log('App.js rendered');
         let products = null;
         if (this.state.showProducts) {
             products=(
