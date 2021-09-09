@@ -21,6 +21,12 @@ class App extends React.Component {
         tempProducts.splice(index, 1);
         this.setState({ priducts: tempProducts })
     }
+
+    changeTitelHandler=(event,index)=>{
+        const tempProducts = this.state.products
+        tempProducts[index].title=event.target.value
+        this.setState({ priducts: tempProducts })
+    }
     render() {
         let products = null;
         if (this.state.showProducts) {
@@ -32,6 +38,7 @@ class App extends React.Component {
                             title={item.title}
                             price={item.price}
                             click={() => this.deleteProductHandler(index)}
+                            change={(event)=>this.changeTitelHandler(event,index)}
                         />
                     })
                 }
