@@ -16,7 +16,7 @@ class App extends React.Component {
     }
 
     deleteProductHandler=(index)=>{
-        const tempProducts=this.state.products
+        const tempProducts=[...this.state.products]
         tempProducts.splice(index,1);
         this.setState({priducts:tempProducts})
     }
