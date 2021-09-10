@@ -9,6 +9,20 @@ class Main extends React.Component{
     componentDidMount(){
         console.log('Main.js componentDidMount');
     }
+
+    shouldComponentUpdate(nextProps,nextState){
+        console.log('Main.js shouldComponentUpdate');
+        return true
+    }
+
+    getSnapshotBeforeUpdate(prevProps,prevState){
+        console.log('Main.js getSnapshotBeforeUpdate');
+        return null
+    }
+
+    componentDidUpdate(){
+        console.log('Main.js componentDidUpdate');
+    }
 render(){
     console.log('Main.js rendered');
     return(<div>

@@ -9,6 +9,21 @@ class ProductList extends React.Component{
     componentDidMount(){
         console.log('ProductList.js componentDidMount');
     }
+
+    shouldComponentUpdate(nextProps,nextState){
+        console.log('ProductList.js shouldComponentUpdate');
+        return true
+    }
+
+    getSnapshotBeforeUpdate(prevProps,prevState){
+        console.log('ProductList.js getSnapshotBeforeUpdate');
+        return null
+    }
+
+    componentDidUpdate(){
+        console.log('ProductList.js componentDidUpdate');
+    } 
+
 render(){  
     console.log('ProductList.js rendered');
        return this.props.stateProducts.map((item, index) => {
