@@ -6,6 +6,9 @@ useEffect(()=>{
     setTimeout(()=>{
         alert('http Request')
     },2000)
+    return ()=>{
+        console.log('Main.js is cleanUp ');
+    }
 },[])
     return(<div>
     <h1>

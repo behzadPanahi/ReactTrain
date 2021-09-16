@@ -13,7 +13,8 @@ class App extends React.Component {
             { id: 1, title: 'book1', price: '90' },
             { id: 2, title: 'book2', price: '80' },
             { id: 3, title: 'book3', price: '70' }],
-        showProducts: false
+        showProducts: false,
+        showMain:true
     }
 
     componentDidMount(){
@@ -62,10 +63,16 @@ class App extends React.Component {
            />
             )  
         }
-        return (
+        return (       
             <div className='center'>
+                <button
+                onClick={()=>{this.setState({showMain:false})}}>
+                     remove main</button>
+                     {this.state.showMain?
+                     <div>
                <Main click={this.toggleHandler}/>
                 {products}
+                </div>:null}
             </div>
         )
     }
