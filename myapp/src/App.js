@@ -42,7 +42,7 @@ class App extends React.Component {
         }
         return (       
             <div className='center'>
-                <button
+                <button className='btn'
                 onClick={()=>{this.setState({showMain:false})}}>
                      remove main</button>
                      {this.state.showMain?
