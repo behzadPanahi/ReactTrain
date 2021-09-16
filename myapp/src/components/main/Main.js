@@ -3,8 +3,10 @@ import './Main.css'
  
 const Main=(props)=>{
 useEffect(()=>{
-    console.log('Main.js Use Effect');
-})
+    setTimeout(()=>{
+        alert('http Request')
+    },2000)
+},[])
     return(<div>
     <h1>
     Book store
