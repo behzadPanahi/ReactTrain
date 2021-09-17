@@ -19,6 +19,7 @@ const Main = (props) => {
             className='btn' >
             show/hidden
         </button>
+        <button onClick={props.login}>log in</button>
     </div>)
 
 
