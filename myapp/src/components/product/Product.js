@@ -1,6 +1,5 @@
 import React from 'react'
 import './Product.css'
-import Container from '../../hoc/Container'
 
 class Product extends React.Component {
 

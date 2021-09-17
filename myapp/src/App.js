@@ -2,6 +2,7 @@ import React from 'react'
 import ProductList from './components/productList/ProductList'
 import './App.css'
 import Main from './components/main/Main'
+import Wrapper from './hoc/Wrapper'
 
 class App extends React.Component {
     state = {
@@ -41,7 +42,7 @@ class App extends React.Component {
             )  
         }
         return (       
-            <div className='center'>
+            <Wrapper cls='center'>
                 <button className='btn'
                 onClick={()=>{this.setState({showMain:false})}}>
                      remove main</button>
@@ -50,7 +51,7 @@ class App extends React.Component {
                <Main click={this.toggleHandler}/>
                 {products}
                 </div>:null}
-            </div>
+            </Wrapper>
         )
     }
 }
