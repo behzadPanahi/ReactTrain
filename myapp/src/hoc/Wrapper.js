@@ -1,9 +1,11 @@
 import React from "react";
-const Wrapper=(props)=>{
-    return(<div className={props.cls}>
-        {props.children}
-    </div>)
 
+const Wrapper = (WrapperComponent, className) => {
+    return (props) => (
+        <div className={className}>
+            <WrapperComponent />
+        </div>
+        )
 }
 
 export default Wrapper

@@ -3,6 +3,7 @@ import ProductList from './components/productList/ProductList'
 import './App.css'
 import Main from './components/main/Main'
 import Wrapper from './hoc/Wrapper'
+import Container from './hoc/Container'
 
 class App extends React.Component {
     state = {
@@ -42,7 +43,7 @@ class App extends React.Component {
             )  
         }
         return (       
-            <Wrapper cls='center'>
+            <Container>
                 <button className='btn'
                 onClick={()=>{this.setState({showMain:false})}}>
                      remove main</button>
@@ -51,8 +52,8 @@ class App extends React.Component {
                <Main click={this.toggleHandler}/>
                 {products}
                 </div>:null}
-            </Wrapper>
+            </Container>
         )
     }
 }
-export default App
+export default Wrapper(App,'center')
