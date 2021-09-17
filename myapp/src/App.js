@@ -4,6 +4,7 @@ import './App.css'
 import Main from './components/main/Main'
 import Wrapper from './hoc/Wrapper'
 import Container from './hoc/Container'
+import AuthContext from './context/auth-context'
 
 class App extends React.Component {
     state = {
@@ -44,7 +45,6 @@ class App extends React.Component {
                     stateProducts={this.state.products}
                     click={this.deleteProductHandler}
                     change={this.changeTitelHandler}
-                    isAuth={this.state.auth}
                 />
             )
         }
@@ -53,13 +53,15 @@ class App extends React.Component {
                 <button className='btn'
                     onClick={() => { this.setState({ showMain: false }) }}>
                     remove main</button>
-                {this.state.showMain ?
-                    <div>
-                        <Main
-                            click={this.toggleHandler}
-                            login={this.loginHandler} />
-                        {products}
-                    </div> : null}
+                <AuthContext.Provider value={{ auth: this.state.auth, login: this.loginHandler }}>
+                    {this.state.showMain ?
+                        <div>
+                            <Main
+                                click={this.toggleHandler}
+                            />
+                            {products}
+                        </div> : null}
+                </AuthContext.Provider>
             </Container>
         )
     }

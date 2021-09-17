@@ -1,6 +1,7 @@
 import React from 'react'
 import './Product.css'
 import Wrapper from '../../hoc/Wrapper'
+import AuthContext from '../../context/auth-context'
 
 class Product extends React.Component {
     constructor(props) {
@@ -14,7 +15,9 @@ class Product extends React.Component {
         return (
 
             <React.Fragment>
-                {this.props.isAuth ? <p>loged in</p> : <p>please log in</p>}
+                <AuthContext.Consumer>
+                    {(context) => context.auth ? <p>loged in</p> : <p>please log in</p>}
+                </AuthContext.Consumer>
                 <p key='1' onClick={this.props.click}>book title : {this.props.title}</p>
                 <p key='2'>book price : {this.props.price}</p>
                 <p key='3'> {this.props.children} </p>

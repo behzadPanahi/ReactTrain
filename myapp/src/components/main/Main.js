@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import './Main.css'
+import AuthContext from "../../context/auth-context";
 
 const Main = (props) => {
     const btnRef = useRef(null)
@@ -19,7 +20,9 @@ const Main = (props) => {
             className='btn' >
             show/hidden
         </button>
-        <button onClick={props.login}>log in</button>
+        <AuthContext.Consumer>
+            {(context)=><button onClick={context.login}>log in</button>}
+        </AuthContext.Consumer>
     </div>)
 
 
