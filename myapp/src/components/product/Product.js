@@ -1,5 +1,6 @@
 import React from 'react'
 import './Product.css'
+import Wrapper from '../../hoc/Wrapper'
 
 class Product extends React.Component {
 
@@ -16,4 +17,4 @@ class Product extends React.Component {
 }
 
 
-export default Product
+export default Wrapper(Product,'product')
