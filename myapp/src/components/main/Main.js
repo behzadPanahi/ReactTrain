@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef,useContext } from "react";
 import './Main.css'
 import AuthContext from "../../context/auth-context";
 
 const Main = (props) => {
     const btnRef = useRef(null)
+
+    const authContex=useContext(AuthContext)
     useEffect(() => {
         btnRef.current.click()
         return () => {
@@ -20,9 +22,9 @@ const Main = (props) => {
             className='btn' >
             show/hidden
         </button>
-        <AuthContext.Consumer>
-            {(context)=><button onClick={context.login}>log in</button>}
-        </AuthContext.Consumer>
+        
+            {<button onClick={authContex.login}>log in</button>}
+       
     </div>)
 
 
