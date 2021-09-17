@@ -1,24 +1,24 @@
-import React ,{useEffect}from "react";
+import React, { useEffect, useRef } from "react";
 import './Main.css'
- 
-const Main=(props)=>{
-useEffect(()=>{
-    setTimeout(()=>{
-        alert('http Request')
-    },2000)
-    return ()=>{
-        console.log('Main.js is cleanUp ');
-    }
-},[])
-    return(<div>
-    <h1>
-    Book store
-</h1>
-<button
-    onClick={props.click}
-    className='btn' >
-    show/hidden
-</button>
+
+const Main = (props) => {
+    const btnRef = useRef(null)
+    useEffect(() => {
+        btnRef.current.click()
+        return () => {
+            console.log('Main.js is cleanUp ');
+        }
+    }, [])
+    return (<div>
+        <h1>
+            Book store
+        </h1>
+        <button
+            ref={btnRef}
+            onClick={props.click}
+            className='btn' >
+            show/hidden
+        </button>
     </div>)
 
 
